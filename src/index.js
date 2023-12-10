@@ -6,18 +6,18 @@ function HelloWorld() {
     <div>Hello World</div>
   )
 }
-
 function Hello() {
   return(
     <span>World</span>
   )
 }
-
 function World() {
   return(
     <span>World</span>
   )
 }
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
