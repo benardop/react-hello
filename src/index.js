@@ -8,7 +8,7 @@ function HelloWorld() {
 }
 function Hello() {
   return(
-    <span>World</span>
+    <span>Hello</span>
   )
 }
 function World() {
@@ -17,6 +17,21 @@ function World() {
   )
 }
 
+function SubmitButton() {
+  const buttonLabel = "Submit";
+  return (
+    <button>{buttonLabel}</button>
+  );
+}
+
+function ValidIndicator() {
+  const isValid = true
+  return (
+    <span>{isValid ? 'True' : 'False' }</span>
+  )
+}
+  
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -24,5 +39,7 @@ root.render(
   <React.StrictMode>
     <HelloWorld/>
     <Hello/> <World/>
+    <SubmitButton />
+    <ValidIndicator />
   </React.StrictMode>
 )
