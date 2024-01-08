@@ -1,35 +1,43 @@
 import React from 'react'
 import ReactDOM  from 'react-dom/client'
 
-function HelloWorld() {
-  return(
-    <div>Hello World</div>
-  )
+class CounterParent extends React.Component {
+  
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      actionCount: 0
+    }
+    this.handleAction = this.handleAction.bind(this);
+  }
+
+  handleAction(event) {
+    console.log('Child says', event);
+
+    this.setState({
+      actionCount: this.state.actionCount + 1
+    })
+  }
+
+  render() {
+    return(
+      <div>
+        <Child onAction={this.handleAction} />
+        <p>You clicked {this.state.actionCount} times</p>
+      </div>
+    )
+  }
+  
 }
-function Hello() {
+function Child({onAction}) {
   return(
-    <span>Hello</span>
-  )
-}
-function World() {
-  return(
-    <span>World</span>
+    <button onClick={onAction}>
+      Click me!
+    </button>
   )
 }
 
-function SubmitButton() {
-  const buttonLabel = "Submit";
-  return (
-    <button>{buttonLabel}</button>
-  );
-}
-
-function ValidIndicator() {
-  const isValid = true
-  return (
-    <span>{isValid ? 'True' : 'False' }</span>
-  )
-}
   
 
 
@@ -37,9 +45,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <HelloWorld/>
-    <Hello/> <World/>
-    <SubmitButton />
-    <ValidIndicator />
+    <CounterParent />
   </React.StrictMode>
 )
